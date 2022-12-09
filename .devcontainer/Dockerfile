@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:0-18-bullseye
 # RUN su node -c "npm install -g <your-package-list-here>"
 
 # Ensure that pnpm is installed as a our package manager when we start our container
-RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
+RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" -o /bin/pnpm; chmod +x /bin/pnpm;
 
 # Install playwright deps
 RUN pnpm dlx playwright install && pnpm dlx playwright install-deps
