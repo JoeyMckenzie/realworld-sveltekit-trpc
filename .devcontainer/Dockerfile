@@ -16,4 +16,4 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 RUN corepack enable
 
 # Install playwright deps
-RUN pnpm dlx playwright install && pnpm dlx playwright install-deps
+RUN npx --yes playwright install && npx --yes playwright install-deps
