@@ -16,7 +16,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*.{json,cjs,js,ts,svelte}": "pnpm format"
+    "**/*.{json,cjs,js,ts,svelte,yml}": "pnpm format"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
