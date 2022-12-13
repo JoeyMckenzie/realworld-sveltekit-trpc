@@ -1,10 +1,13 @@
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
 import prisma from '$lib/server/prisma';
+import superjson from 'superjson';
 
-const t = initTRPC.create();
+export const t = initTRPC.create({
+  transformer: superjson
+});
 
-const appRouter = t.router({
+export const usersRouter = t.router({
   findUserByEmail: t.procedure
     .input(
       z.object({
@@ -12,7 +15,7 @@ const appRouter = t.router({
       })
     )
     .query(({ input }) =>
-      prisma.user.findMany({
+      prisma.user.findFirst({
         where: {
           email: input.email
         }
@@ -20,4 +23,4 @@ const appRouter = t.router({
     )
 });
 
-export type AppRouter = typeof appRouter;
+export type UsersRouter = typeof usersRouter;
