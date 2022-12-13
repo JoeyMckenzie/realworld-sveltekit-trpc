@@ -12,11 +12,15 @@
     "esbenp.prettier-vscode",
     "ckolkman.vscode-postgres",
     "ms-playwright.playwright",
-    "Prisma.prisma"
+    "Prisma.prisma",
+    "ms-azuretools.vscode-docker"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // This can be used to network with other containers or with the host.
-  "forwardPorts": [5173, 5432],
+  "forwardPorts": [
+    5173,
+    5432
+  ],
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "pnpm install && pnpm prepare"
   // Configure tool-specific properties.
