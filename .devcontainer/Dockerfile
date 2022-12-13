@@ -14,6 +14,3 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 
 # Ensure that pnpm is installed as a our package manager when we start our container
 RUN corepack enable
-
-# Install playwright deps
-RUN npx --yes playwright install && npx --yes playwright install-deps
