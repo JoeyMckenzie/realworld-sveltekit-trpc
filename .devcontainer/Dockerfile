@@ -1,4 +1,6 @@
-ARG VARIANT=18-bullseye
+ARG PSCALE_VERSION="0.125.0"
+ARG VARIANT="18-bullseye"
+
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
@@ -12,5 +14,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g <your-package-list-here>"
 
-# Ensure that pnpm is installed as a our package manager when we start our container
-RUN corepack enable
+# Grab the pscale CLI
+RUN sudo wget https://github.com/planetscale/cli/releases/download/v${PSCALE_VERSION}/pscale_${PSCALE_VERSION}_linux_amd64.deb && \
+    sudo dpkg -i pscale_${PSCALE_VERSION}_linux_amd64.deb

@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
@@ -16,6 +17,9 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
   username  String   @default("")
   email     String   @unique @default("")
+  image     String   @default("")
+  bio       String   @default("")
+  password  String   @default("")
 
   @@map("users")
 }

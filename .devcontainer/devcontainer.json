@@ -2,8 +2,15 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
 {
   "name": "RealWorld SvelteKit",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      // Use the VARIANT arg to pick a Debian OS version: buster, bullseye
+      // Use bullseye when on local on arm64/Apple Silicon.
+      "PSCALE_VERSION": "0.125.0",
+      "VARIANT": "18-bullseye"
+    }
+  },
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},

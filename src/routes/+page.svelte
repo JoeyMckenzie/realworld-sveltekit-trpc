@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import type { PageServerData } from "./$types";
+  import { onMount } from 'svelte';
+  import type { PageServerData } from './$types';
 
-    export let data: PageServerData
+  export let data: PageServerData;
 
-    onMount(() => console.log(data));
+  onMount(() => console.log(data));
 </script>
 
 <h1>Welcome to SvelteKit</h1>
